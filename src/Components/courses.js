@@ -194,7 +194,7 @@ function Courses() {
   const filteredCourses =
     activeCategory === "all"
       ? courses
-      : courses.filter(c => c.category === activeCategory);
+      : courses.filter(c => c.category === activeCategory);  
 
   return (
     <div className="bg-[#FFF8E7] py-16 px-10">
