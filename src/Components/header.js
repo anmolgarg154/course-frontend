@@ -1,7 +1,7 @@
 import logo from "../Components/Images/header.png";
 import { Link } from "react-router-dom";
-import Home from "./home";
-import Courses from "./courses";
+
+
 function Header(){
     return(
         <div>
@@ -31,7 +31,7 @@ function Header(){
               className="text-gray-700 hover:text-purple-600 transition" 
               to="/products"
             >
-              Products
+              Courses
             </Link>
           </li>
 
@@ -40,7 +40,7 @@ function Header(){
               className="text-gray-700 hover:text-purple-600 transition" 
               to="/basket"
             >
-              Basket
+              About Us
             </Link>
           </li>
 
@@ -55,8 +55,9 @@ function Header(){
         </ul>
 
       </nav>
-      <Home/>
-      <Courses/>
+      
+      
+     
     </div>
     )
 }

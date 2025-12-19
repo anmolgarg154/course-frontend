@@ -1,3 +1,5 @@
+import Courses from "./Courses";
+
 function Home() {
   return (
     <div className="w-full">
@@ -117,7 +119,7 @@ function Home() {
 
           
           <div className="flex items-center justify-center space-x-4">
-            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989849.png" className="w-12 h-12 sm:w-14 sm:h-14" />
+            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989849.png" alt="IMG" className="w-12 h-12 sm:w-14 sm:h-14" />
             <div>
               <p className="text-2xl sm:text-[32px] font-semibold leading-none">50+</p>
               <p className="text-lg sm:text-[24px] text-gray-700 mt-1">Courses</p>
@@ -153,6 +155,8 @@ function Home() {
 
         </div>
       </div>
+
+      <Courses/>
 
     </div>
   );
