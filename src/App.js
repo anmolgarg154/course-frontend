@@ -7,7 +7,9 @@ import Single from "./Components/Single";
 import CourseDetails from "./Components/CourseDetails";
 import AboutUs from "./Components/AboutUs";
 import CareerSupport from "./Components/CareerSupport";
-import  Contact from "./Components/Contact";
+import Contact from "./Components/Contact";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/packs" element={<Packs />} />
         <Route path="/aa" element={<Single />} />
-        <Route path="/AboutUs" element={<AboutUs/>} />
-        <Route path="/carrer" element={<CareerSupport/>}/>
-        <Route path="/cc" element={<Contact/>} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/carrer" element={<CareerSupport />} />
+        <Route path="/cc" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Route>
 
       {/* Admin route (no header/footer) */}

@@ -1,16 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../Components/Images/header.png";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
+import { connect } from "react-redux";
 
-function Header() {
+function Header({ commonData }) {
   const [open, setOpen] = useState(false);
+
+  function login() {
+    return (
+      <>
+        <li className="nav-item active">
+          <Link className="nav-link" to="/register">Register</Link>
+        </li>
+        <li className="nav-item active">
+          <Link className="nav-link" to="/login">Login</Link>
+        </li>
+      </>
+    )
+  }
+  useEffect(() => {
+    login()
+  }, [])
 
   return (
     <>
       {/* Navbar */}
       <nav className="w-full bg-white shadow-md px-4 md:px-20 py-4 flex items-center justify-between">
-        
+
         {/* Logo + Name */}
         <div className="flex items-center gap-3">
           <Link to="/">
@@ -35,6 +52,12 @@ function Header() {
               </NavLink>
             </li>
           ))}
+          {commonData.isLogin == 'N' &&
+            <div classname="flex gap-4">
+              <li>Login -  {commonData.isLogin}</li>
+              <li>Register</li>
+            </div>
+          }
         </ul>
 
         {/* Mobile Hamburger */}
@@ -46,13 +69,7 @@ function Header() {
         </button>
       </nav>
 
-      {/* Mobile Overlay */}
-      {open && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-40"
-          onClick={() => setOpen(false)}
-        ></div>
-      )}
+
 
       {/* Mobile Sidebar */}
       <div
@@ -79,4 +96,5 @@ function Header() {
   );
 }
 
-export default Header;
+let connectToStore = (state) => ({ commonData: state });
+export default connect(connectToStore)(Header);
