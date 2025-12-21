@@ -1,21 +1,33 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./Components/Home.js";
-import Header from "./Components/Header.js";
-import Courses from "./Components/Courses.js";
-import Packs from "./Components/Packs.js";
+import Layout from "./Components/Layout";
+import Home from "./Components/Home";
+import Courses from "./Components/Courses";
+import Packs from "./Components/Packs";
+import Single from "./Components/Single";
+import CourseDetails from "./Components/CourseDetails";
+import AboutUs from "./Components/AboutUs";
+import CareerSupport from "./Components/CareerSupport";
+import  Contact from "./Components/Contact";
 
 function App() {
   return (
-     <>
-      <Header />
-      <Routes>
+    <Routes>
+      {/* Public Website Layout */}
+      <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="" element={<Courses />} />
-        <Route path="/packs" element={<Packs/>} />
-      </Routes>
-    </>
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:id" element={<CourseDetails />} />
+        <Route path="/packs" element={<Packs />} />
+        <Route path="/aa" element={<Single />} />
+        <Route path="/AboutUs" element={<AboutUs/>} />
+        <Route path="/carrer" element={<CareerSupport/>}/>
+        <Route path="/cc" element={<Contact/>} />
+      </Route>
+
+      {/* Admin route (no header/footer) */}
+      <Route path="/admin" element={<div>Admin Page</div>} />
+    </Routes>
   );
 }
 
 export default App;
-  

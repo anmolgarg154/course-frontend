@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { LayoutDashboard, Code, Brush } from "lucide-react";
 import { useEffect } from "react";
 import Packs from "./Packs";
 
 function Courses() {
   const navigate = useNavigate();
+  let pp = useParams()
 
   const categories = [
     { key: "all", label: "All Courses", icon: <LayoutDashboard size={18} /> },
@@ -15,6 +16,7 @@ function Courses() {
 
   const courses = [
     {
+      id: 1,
       title: "React Development",
       slug: "react-development",
       category: "development",
@@ -23,6 +25,7 @@ function Courses() {
       price: 699,
     },
     {
+      id: 2,
       title: "Node.js Backend",
       slug: "node-js-backend",
       category: "development",
@@ -31,24 +34,28 @@ function Courses() {
       price: 699,
     },
     {
+      id: 3,
       title: "Angular Development",
       slug: "angular-development",
       category: "development",
       image: "https://tse4.mm.bing.net/th/id/OIP.3k1p8lilrOXaLbpx-sQnwwHaHa?pid=Api&P=0&h=180",
     },
     {
+      id:4,
       title: "Next JS ",
       slug: "next-js",
       category: "development",
       image: "https://www.chaiyohosting.com/img/nextjs-img.png",
     },
     {
+      id:5,
       title: "Web Development With Mern Stack",
       slug: "mern-stack-development",
       category: "development",
       image: "https://tse2.mm.bing.net/th/id/OIP.zJ1tH9_FpoAHbJypkD2mZQHaHa?pid=Api&P=0&h=180",
     },
     {
+      id:6,
       title: "UI UX Designing",
       slug: "ui-ux-design",
       category: "design",
@@ -65,9 +72,12 @@ function Courses() {
       ? courses
       : courses.filter(c => c.category === activeCategory);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
+      function LoadCourses(){
+        
+      }
+
+  
 
 
   return (
@@ -100,13 +110,11 @@ function Courses() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {filteredCourses.map((course) => (
-          <button
-            key={course.slug}
-            to={`/courses/${course.slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white rounded-2xl border p-6 cursor-pointer
-               hover:shadow-xl hover:-translate-y-2 transition block"
+         <Link
+            key={course.id}
+            to={`/courses/${course.id}`}
+            className="bg-white rounded-2xl border p-6 block cursor-pointer
+            hover:shadow-xl hover:-translate-y-2 transition"
           >
             <img
               src={course.image}
@@ -116,7 +124,7 @@ function Courses() {
             <h3 className="text-xl font-bold text-purple-700 text-center">
               {course.title}
             </h3>
-          </button>
+          </Link>
         ))}
 
       </div>

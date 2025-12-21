@@ -1,132 +1,157 @@
+import { Link } from "react-router-dom";
 import Courses from "./Courses";
 
 function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full font-sans bg-gray-50">
 
-      {/* Top refund banner */}
-      <div className="w-full bg-yellow-300 text-center py-2 text-lg md:text-xl font-semibold">
-        Enjoy 100% Refund On Course Completion
+      {/* Top Banner */}
+      <div className="w-full bg-indigo-200 text-center py-2 text-lg md:text-xl font-semibold text-indigo-900">
+        🚀 Start Learning Today – 100% Refund on Course Completion!
       </div>
 
-      
-      <div className="w-full flex flex-col md:flex-row gap-10 mt-4 md:mt-10 px-4 md:px-10">
+      {/* Hero Section */}
+      <div className="w-full flex flex-col md:flex-row gap-10 mt-6 md:mt-12 px-4 md:px-10">
 
-        {/* LEFT SECTION */}
-        <div className="flex flex-col mt-8 md:mt-20 gap-6 text-left md:w-1/2">
-
-          {/* IIT DELHI TAG */}
-          <div className="border rounded-full px-4 py-2 inline-flex items-center gap-2 bg-white shadow-sm w-fit text-sm">
+        {/* LEFT HERO */}
+        <div className="flex flex-col mt-8 md:mt-20 gap-6 md:w-1/2">
+          {/* Tag */}
+          <div className="border rounded-full px-4 py-2 inline-flex items-center gap-2 bg-white shadow-md w-fit text-sm">
             <span className="text-gray-600">An</span>
-            <span className="font-semibold text-purple-600">IIT Delhi</span>
+            <span className="font-semibold text-indigo-600">IIT Delhi</span>
             <span className="text-gray-600">Alumni Initiative</span>
           </div>
 
-          {/* HEADING */}
+          {/* Heading */}
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-snug">
-            Level Up <span>🚀</span> Your Career With Expert Mentorship & Internships For
-            <span className="inline-block bg-purple-100 px-3 py-1 rounded-lg text-purple-700 ml-2">
-              FREE
+            Unlock Your Potential <span>🎓</span> with Hands-on Courses & Mentorship
+            <span className="inline-block bg-indigo-100 px-3 py-1 rounded-lg text-indigo-700 ml-2">
+              Free
             </span>
           </h1>
 
-          {/* SUBTEXT */}
-          <p className="text-gray-600 text-base md:text-lg">
-            With 100% Refund guarantee on course completion.
+          {/* Subtext */}
+          <p className="text-gray-700 text-base md:text-lg">
+            Join thousands of learners mastering new skills with live support, practical projects, and career guidance.
           </p>
 
-          {/* RATING */}
+          {/* Rating */}
           <div className="flex items-center gap-3">
             <img
-              src="https://tse4.mm.bing.net/th/id/OIP.dto_UknSThfSRMLbtm2PGQHaHh?pid=Api&P=0&h=180"
+              src="https://cdn.pixabay.com/photo/2017/01/19/09/11/logo-google-1991840_1280.png"
               alt="Google"
               className="w-5 md:w-6"
             />
             <p className="font-semibold text-sm md:text-base">4.9/5 ⭐⭐⭐⭐⭐</p>
           </div>
 
-          {/* BUTTONS */}
+          {/* Buttons */}
           <div className="flex items-center gap-6 flex-wrap">
-            <button className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-lg">
+            <Link 
+              to="/courses" 
+              className="bg-indigo-700 hover:bg-indigo-800 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-lg transition transform hover:scale-105"
+            >
               Explore Courses
-            </button>
+            </Link>
 
-            <div className="flex items-center gap-2 text-purple-700 font-medium">
+            <div className="flex items-center gap-2 text-indigo-700 font-medium">
               <span className="text-xl">▶</span>
-              100% refund offer
+              100% Refund Guarantee
             </div>
           </div>
         </div>
 
-        {/* RIGHT SECTION */} 
-
+        {/* RIGHT HERO IMAGE Grid */}
         <div className="relative flex justify-center w-full md:w-1/2">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
 
-            
-                <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-center h-60 md:h-72 
-                                transition transform hover:scale-[1.03] hover:shadow-2xl cursor-pointer">
-                <div className="space-y-4">
-                    <div className="flex items-center bg-green-100 p-3 rounded-lg transition hover:bg-green-200">
-                    <span className="text-xl mr-3">📈</span>
-                    <p className="font-semibold">100% Refund</p>
-                    </div>
-                    <div className="flex items-center bg-yellow-100 p-3 rounded-lg transition hover:bg-yellow-200">
-                    <span className="text-xl mr-3">💬</span>
-                    <p className="font-semibold">Instant doubt Support</p>
-                    </div>
-                    <div className="flex items-center bg-purple-100 p-3 rounded-lg transition hover:bg-purple-200">
-                    <span className="text-xl mr-3">🎓</span>
-                    <p className="font-semibold">Internship Opportunities</p>
-                    </div>
+            {/* Card 1 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-center h-60 md:h-72 
+                            transition transform hover:scale-[1.05] hover:shadow-2xl cursor-pointer">
+              <div className="space-y-4">
+                <div className="flex items-center bg-green-100 p-3 rounded-lg transition hover:bg-green-200">
+                  <span className="text-xl mr-3">💯</span>
+                  <p className="font-semibold">100% Refund</p>
                 </div>
+                <div className="flex items-center bg-yellow-100 p-3 rounded-lg transition hover:bg-yellow-200">
+                  <span className="text-xl mr-3">💬</span>
+                  <p className="font-semibold">Instant Doubt Support</p>
                 </div>
+                <div className="flex items-center bg-purple-100 p-3 rounded-lg transition hover:bg-purple-200">
+                  <span className="text-xl mr-3">🎓</span>
+                  <p className="font-semibold">Internship & Projects</p>
+                </div>
+              </div>
+            </div>
 
-                {/* Card 2 */}
-                <div className="bg-white shadow-lg rounded-2xl h-60 md:h-72 overflow-hidden 
-                                transition transform hover:scale-[1.03] hover:shadow-2xl cursor-pointer flex items-center justify-center">
-                <img
-                    src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295396_1280.png"
-                    alt="person"
-                    className="h-full w-full object-cover rounded-2xl transition-transform duration-500 hover:scale-110"
-                />
-                </div>
+            {/* Card 2 */}
+            <div className="bg-white shadow-lg rounded-2xl h-60 md:h-72 overflow-hidden 
+                            transition transform hover:scale-[1.05] hover:shadow-2xl cursor-pointer flex items-center justify-center">
+              <img
+              src="https://www.makemyassignments.com/blog/wp-content/uploads/2023/03/AdobeStock_429176281.jpg"
+                alt="student"
+                className="h-full w-full object-cover rounded-2xl transition-transform duration-500 hover:scale-110"
+              />
+            </div>
 
-                {/* Card 3 */}
-                <div className="bg-white shadow-lg rounded-2xl h-60 md:h-72 overflow-hidden 
-                                transition transform hover:scale-[1.03] hover:shadow-2xl cursor-pointer flex items-center justify-center">
-                <img
-                    src="https://static.vecteezy.com/system/resources/previews/046/985/444/non_2x/four-section-infographic-diagram-free-vector.jpg"
-                    alt="student"
-                    className="h-full w-full object-cover rounded-2xl transition-transform duration-500 hover:scale-110"
-                />
-                </div>
+            {/* Card 3 */}
+            <div className="bg-white shadow-lg rounded-2xl h-60 md:h-72 overflow-hidden 
+                            transition transform hover:scale-[1.05] hover:shadow-2xl cursor-pointer flex items-center justify-center">
+              <img
+              src="https://lirp.cdn-website.com/4b8185e2/dms3rep/multi/opt/Learning-1920w.jpg"
+                alt="learning"
+                className="h-full w-full object-cover rounded-2xl transition-transform duration-500 hover:scale-110"
+              />
+            </div>
 
-                {/* Card 4 */}
-                <div className="bg-green-300 shadow-lg rounded-2xl flex flex-col items-center justify-center h-60 md:h-72 p-6 transition transform hover:scale-[1.03] hover:shadow-2xl cursor-pointer">
-                <p className="text-lg font-bold mb-2">Google Reviews</p>
-                <p className="text-2xl font-semibold mb-2">4.9/5 ⭐⭐⭐⭐</p>
-                </div>
-
+            {/* Card 4 */}
+           <div className="bg-white shadow-lg rounded-2xl h-60 md:h-72 overflow-hidden 
+                            transition transform hover:scale-[1.05] hover:shadow-2xl cursor-pointer flex items-center justify-center">
+              <img
+              src="https://tse3.mm.bing.net/th/id/OIP.4TKYi2WyQDBGsDdKRtvtjwHaFI?pid=Api&P=0&h=180"
+                alt="learning"
+                className="h-full w-full object-cover rounded-2xl transition-transform duration-500 hover:scale-110"
+              />
+            </div>
           </div>
         </div>
 
       </div>
 
-      {/* { explanation} */}
-      <div className="w-full mt-20 mb-0 bg-purple-300 py-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center px-6">
+      {/* Learning Process Section */}
+      <div className="max-w-7xl mx-auto py-16 px-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">
+          How You Learn With Us
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" className="w-16 h-16 mx-auto mb-4" alt="interactive" />
+            <h3 className="font-semibold text-lg mb-2">Interactive Learning</h3>
+            <p className="text-gray-600 text-sm">Hands-on projects and live mentorship for practical skills.</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/1081/1081945.png" className="w-16 h-16 mx-auto mb-4" alt="personalized" />
+            <h3 className="font-semibold text-lg mb-2">Personalized Guidance</h3>
+            <p className="text-gray-600 text-sm">Get expert advice tailored to your career goals.</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" className="w-16 h-16 mx-auto mb-4" alt="certification" />
+            <h3 className="font-semibold text-lg mb-2">Certification</h3>
+            <p className="text-gray-600 text-sm">Earn certificates to showcase your skills and projects.</p>
+          </div>
+        </div>
+      </div>
 
-          
+      {/* Stats Section */}
+      <div className="w-full mt-20 mb-0 bg-indigo-100 py-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center px-6">
           <div className="flex items-center justify-center space-x-4">
-            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989849.png" alt="IMG" className="w-12 h-12 sm:w-14 sm:h-14" />
+            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989849.png" alt="Courses" className="w-12 h-12 sm:w-14 sm:h-14" />
             <div>
               <p className="text-2xl sm:text-[32px] font-semibold leading-none">50+</p>
               <p className="text-lg sm:text-[24px] text-gray-700 mt-1">Courses</p>
             </div>
           </div>
-
-          {/* Card 2 */}
           <div className="flex items-center justify-center space-x-4">
             <img src="https://cdn-icons-png.flaticon.com/512/3076/3076176.png" className="w-12 h-12 sm:w-14 sm:h-14" />
             <div>
@@ -134,8 +159,6 @@ function Home() {
               <p className="text-lg sm:text-[24px] text-gray-700 mt-1">Learners</p>
             </div>
           </div>
-
-          {/* Card 3 */}
           <div className="flex items-center justify-center space-x-4">
             <img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" className="w-12 h-12 sm:w-14 sm:h-14" />
             <div>
@@ -143,19 +166,17 @@ function Home() {
               <p className="text-lg sm:text-[24px] text-gray-700 mt-1">Doubts Solved</p>
             </div>
           </div>
-
-          {/* Card 4 */}
           <div className="flex items-center justify-center space-x-4">
             <img src="https://cdn-icons-png.flaticon.com/512/993/993699.png" className="w-12 h-12 sm:w-14 sm:h-14" />
             <div>
               <p className="text-2xl sm:text-[32px] font-semibold leading-none">10k+</p>
-              <p className="text-lg sm:text-[24px] text-gray-700 mt-1">Student Projects</p>
+              <p className="text-lg sm:text-[24px] text-gray-700 mt-1">Projects Completed</p>
             </div>
           </div>
-
         </div>
       </div>
 
+      {/* Courses Component */}
       <Courses/>
 
     </div>
