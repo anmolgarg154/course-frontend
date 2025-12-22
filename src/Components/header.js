@@ -53,9 +53,9 @@ function Header({ commonData }) {
             </li>
           ))}
           {commonData.isLogin == 'N' &&
-            <div classname="flex gap-4">
-              <li>Login -  {commonData.isLogin}</li>
-              <li>Register</li>
+            <div className="flex gap-4">
+              <Link to="/login"><li>Login -  {commonData.isLogin}</li></Link>
+              <Link to="/register"><li>Register</li></Link>
             </div>
           }
         </ul>
