@@ -247,10 +247,10 @@ const Card = ({ title, desc, img }) => (
     </div>
 );
 
-const CourseCard = ({ title }) => (
-    <div className="border border-purple-200 rounded-xl p-6 text-center bg-purple-50">
-        <h3 className="text-xl font-semibold text-purple-800">{title}</h3>
-    </div>
-);
+// const CourseCard = ({ title }) => (
+//     <div className="border border-purple-200 rounded-xl p-6 text-center bg-purple-50">
+//         <h3 className="text-xl font-semibold text-purple-800">{title}</h3>
+//     </div>
+// );
 
 export default Packs;

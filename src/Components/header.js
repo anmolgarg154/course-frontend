@@ -52,9 +52,9 @@ function Header({ commonData }) {
               </NavLink>
             </li>
           ))}
-          {commonData.isLogin == 'N' &&
+          {commonData.isLogin == 'Y' &&
             <div className="flex gap-4">
-              <Link to="/login"><li>Login -  {commonData.isLogin}</li></Link>
+              <Link to="/login"><li>Login</li></Link>
               <Link to="/register"><li>Register</li></Link>
             </div>
           }
@@ -89,7 +89,9 @@ function Header({ commonData }) {
           <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
           <NavLink to="/Courses" onClick={() => setOpen(false)}>Courses</NavLink>
           <NavLink to="/AboutUs" onClick={() => setOpen(false)}>About Us</NavLink>
-          <NavLink to="/cc" onClick={() => setOpen(false)}>Contact Us</NavLink>
+          <NavLink to="/contact" onClick={() => setOpen(false)}>Contact Us</NavLink>
+          <NavLink to="/logout" onClick={() => setOpen(false)}>Logout</NavLink>
+
         </ul>
       </div>
     </>
