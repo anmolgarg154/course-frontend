@@ -1,27 +1,49 @@
 import { useEffect, useState } from "react";
 import logo from "../Components/Images/header.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import { connect } from "react-redux";
+import { setLogin } from "../Action";
 
-function Header({ commonData }) {
+function Header({ commonData, setLogin }) {
   const [open, setOpen] = useState(false);
+  const nav = useNavigate();
 
-  function login() {
-    return (
-      <>
-        <li className="nav-item active">
-          <Link className="nav-link" to="/register">Register</Link>
-        </li>
-        <li className="nav-item active">
-          <Link className="nav-link" to="/login">Login</Link>
-        </li>
-      </>
-    )
+     function f1()
+    {
+        return(
+            <>
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/register">Register</Link>
+                </li>
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/login">Login</Link>
+                </li>
+            </>
+        );
+    }
+    function f2()
+    {
+        return(
+            <>
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/profile">My Profile</Link>
+                </li>
+                <li className="nav-item active">
+                    <input type="button" value="Logout" className="nav-link" onClick={Logout} />
+                </li>
+            </>
+        );
+    }
+
+ 
+
+  function Logout() {
+    setLogin('N');
+    nav('/login')
+
   }
-  useEffect(() => {
-    login()
-  }, [])
+  
 
   return (
     <>
@@ -40,25 +62,62 @@ function Header({ commonData }) {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-lg font-medium">
-          {["/", "/Courses", "/AboutUs", "/cc"].map((path, i) => (
+          {/* {["/", "/Courses", "/AboutUs", "/contact"].map((path, i) => (
             <li key={i}>
               <NavLink
                 to={path}
                 className={({ isActive }) =>
-                  `${isActive ? "text-purple-600" : "text-gray-700"} hover:text-purple-600 transition`
+                  `${isActive ? "text-purple-600" : "text-gray-700"} hover:text-grey-600 transition`
                 }
               >
                 {["Home", "Courses", "About Us", "Contact Us"][i]}
               </NavLink>
             </li>
-          ))}
-          {commonData.isLogin == 'Y' &&
+            
+          ))} */}
+          <NavLink to="/" className={({ isActive }) => isActive ? "text-purple-600" : "text-gray-700"} > Home </NavLink>
+          <NavLink to="/courses" className={({ isActive }) => isActive ? "text-purple-600" : "text-gray-700"} > Courses </NavLink>
+          <NavLink to="/AboutUs" className={({ isActive }) => isActive ? "text-purple-600" : "text-gray-700"} > About Us </NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? "text-purple-600" : "text-gray-700"} > Contacts </NavLink>
+
+
+                           {commonData.isLogin=="Y"?f1():f2()}
+
+          {/* {commonData.isLogin == 'N' &&
             <div className="flex gap-4">
-              <Link to="/login"><li>Login</li></Link>
-              <Link to="/register"><li>Register</li></Link>
+              <Link to="/login">
+                <input
+                  type="button"
+                  value="Login"
+                  className="px-6 py-2 rounded-lg border border-purple-600 text-purple-600 font-semibold
+                 hover:bg-purple-600 hover:text-white transition duration-300 cursor-pointer"
+                />
+              </Link>
+
+              <Link to="/register">
+                <input
+                  type="button"
+                  value="Register"
+                  className="px-6 py-2 rounded-lg bg-purple-600 text-white font-semibold
+                 hover:bg-purple-700 transition duration-300 cursor-pointer"
+                />
+              </Link>
             </div>
-          }
+
+          } */}
+
+          {/* {commonData.isLogin == 'Y' &&
+
+            <input
+              type="button"
+              value="Logout"
+              onClick={Logout}
+              className="px-6 py-2 rounded-lg border border-purple-600 text-purple-600 font-semibold
+                 hover:bg-purple-600 hover:text-white transition duration-300 cursor-pointer"
+            />
+          } */}
         </ul>
+
 
         {/* Mobile Hamburger */}
         <button
@@ -99,4 +158,7 @@ function Header({ commonData }) {
 }
 
 let connectToStore = (state) => ({ commonData: state });
-export default connect(connectToStore)(Header);
+let dispatchToStore = (dispatch) => ({
+  setLogin: (value) => dispatch(setLogin(value))
+})
+export default connect(connectToStore, dispatchToStore)(Header);

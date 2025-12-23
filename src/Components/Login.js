@@ -28,7 +28,7 @@ async  function doLogin() {
             document.getElementById("Lt1").value = "";
             document.getElementById("Lt2").value = "";
 
-            nav("/");
+            nav("");
           } else {
             alert("Invalid Login/Password!!!");
             document.getElementById("Lt2").focus();

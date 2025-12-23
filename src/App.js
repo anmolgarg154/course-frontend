@@ -10,13 +10,14 @@ import CareerSupport from "./Components/CareerSupport";
 import Contact from "./Components/Contact";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import Logout from "./Components/Logout";
 
 function App() {
   return (
     <Routes>
       {/* Public Website Layout */}
       <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
+        <Route path="" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/packs" element={<Packs />} />
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout/>}/>
       </Route>
 
       {/* Admin route (no header/footer) */}
