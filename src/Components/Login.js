@@ -17,27 +17,20 @@ async  function doLogin() {
       })
       .then(reply => {
         if (reply.status === 200) {
-          if (!reply.data.status) {
-            if (document.getElementById("c1").checked) {
-              let d = new Date();
-              d.setDate(d.getDate() + 7);
-            }
+            
+            setLogin(true);
+            alert("Login successfully")
 
-            setLogin('Y');
+            // document.getElementById("Lt1").value = "";
+            // document.getElementById("Lt2").value = "";
 
-            document.getElementById("Lt1").value = "";
-            document.getElementById("Lt2").value = "";
-
-            nav("");
-          } else {
-            alert("Invalid Login/Password!!!");
-            document.getElementById("Lt2").focus();
-          }
+            nav("/");
         }
-      })
+        }
+      )
       .catch(err => {
         console.error(err);
-        alert("Server error");
+        alert("Incorrect credentials");
       });
   }
 
