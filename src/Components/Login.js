@@ -18,7 +18,7 @@ async  function doLogin() {
       .then(reply => {
         if (reply.status === 200) {
             
-            setLogin(true);
+            setLogin('Y');
             alert("Login successfully")
 
             // document.getElementById("Lt1").value = "";

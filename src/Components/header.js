@@ -1,120 +1,98 @@
-import { useState } from "react";
+import { connect } from "react-redux";
 import logo from "../Components/Images/header.png";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { HiMenu, HiX } from "react-icons/hi";
-import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-function Header() {
-  const isLogin = useSelector((state) => state.isLogin);
-  const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
-  const nav = useNavigate();
-
-  const navItem = [
-    { name: "Home", slug: "/" },
-    { name: "Course", slug: "/courses" },
-    { name: "About Us", slug: "/about" },
-    { name: "Contacts", slug: "/contact" },
-  ];
-
-  const handleLogout = () => {
-    dispatch({ type: "setLogin", value: false });
-    nav("/login");
-  };
-
+function Header({commonData}) {
+  function f1()
+    {
+        return(
+            <>
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/register">Register</Link>
+                </li>
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/login">Login</Link>
+                </li>
+            </>
+        );
+    }
+    function f2()
+    {
+        return(
+            <>
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/profile">My Profile</Link>
+                </li>
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/logout">Logout</Link>
+                </li>
+            </>
+        );
+    }
   return (
     <>
-      {/* Navbar */}
-      <nav className="w-full bg-white shadow-md px-4 md:px-20 py-4 flex items-center justify-between">
+      <div className="w-full bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+          
+          {/* Logo Section */}
+          <div className="flex items-center gap-3">
+            <img
+              src={logo}
+              className="w-14 md:w-16 object-contain"
+              alt="logo"
+            />
+            <span className="text-2xl md:text-3xl font-bold text-purple-600 tracking-wide">
+              Xpert
+            </span>
+          </div>
 
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <Link to="/">
-            <img src={logo} className="w-16 md:w-20" alt="logo" />
-          </Link>
-          <span className="text-3xl md:text-4xl font-bold text-purple-600">
-            Xpert
-          </span>
+          {/* Navigation */}
+          <header>
+            <nav>
+              <ul className="hidden text-xl md:flex items-center gap-8 text-gray-700 font-medium">
+                <li>
+                  <Link
+                    to="/"
+                    className="hover:text-purple-600 transition duration-200"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/courses"
+                    className="hover:text-purple-600 transition duration-200"
+                  >
+                    Courses
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/AboutUs"
+                    className="hover:text-purple-600 transition duration-200"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="hover:text-purple-600 transition duration-200"
+                  >
+                    Contact
+                  </Link>
+                </li>
+                {commonData.isLogin=='Y'? f2():f1()}
+              </ul>
+            </nav>
+          </header>
+
         </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-lg font-medium items-center">
-
-          {/* Always visible */}
-          {navItem.map((e) => (
-            <li key={e.slug}>
-              <button
-                onClick={() => nav(e.slug)}
-                className="hover:text-purple-600"
-              >
-                {e.name}
-              </button>
-            </li>
-          ))}
-
-          {/* When logged out */}
-          {!isLogin && (
-            <>
-              <li>
-                <button onClick={() => nav("/login")}>Login</button>
-              </li>
-              <li>
-                <button onClick={() => nav("/register")}>Register</button>
-              </li>
-            </>
-          )}
-
-          {/* When logged in */}
-          {isLogin && (
-            <li>
-              <button onClick={handleLogout}>Logout</button>
-            </li>
-          )}
-
-        </ul>
-
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden text-3xl text-purple-600"
-          onClick={() => setOpen(true)}
-        >
-          <HiMenu />
-        </button>
-      </nav>
-
-      {/* Mobile Sidebar */}
-      <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300
-        ${open ? "translate-x-0" : "-translate-x-full"}`}
-      >
-        <div className="flex items-center justify-between px-4 py-4 border-b">
-          <span className="text-2xl font-bold text-purple-600">Menu</span>
-          <button onClick={() => setOpen(false)} className="text-2xl">
-            <HiX />
-          </button>
-        </div>
-
-        <ul className="flex flex-col gap-6 px-6 py-6 text-lg font-medium">
-          {navItem.map((e) => (
-            <NavLink key={e.slug} to={e.slug} onClick={() => setOpen(false)}>
-              {e.name}
-            </NavLink>
-          ))}
-
-          {!isLogin && (
-            <>
-              <NavLink to="/login">Login</NavLink>
-              <NavLink to="/register">Register</NavLink>
-            </>
-          )}
-
-          {isLogin && (
-            <button onClick={handleLogout}>Logout</button>
-          )}
-        </ul>
       </div>
     </>
   );
 }
 
-export default Header;
+let connectToStore = (state)=>({commonData:state})
+
+export default connect (connectToStore) (Header);
