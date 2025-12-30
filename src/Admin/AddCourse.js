@@ -40,7 +40,7 @@ function AddCourse() {
     data.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:5000/aa/course/create", {
+      const res = await fetch("http://localhost:5000/api/v1/course/create", {
         method: "POST",
         body: data,
       });
