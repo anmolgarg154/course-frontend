@@ -11,6 +11,8 @@ import Contact from "./Components/Contact";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Logout from "./Components/Logout";
+import AddCourse from "./Admin/AddCourse";
+import NewCourses from "./Components/NewCourse";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout/>}/>
+        <Route path="/admin" element={<AddCourse/>}/>
+        <Route path="/new" element={<NewCourses/>}/>
       </Route>
 
       {/* Admin route (no header/footer) */}
