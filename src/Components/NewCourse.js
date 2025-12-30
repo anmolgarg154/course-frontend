@@ -8,14 +8,16 @@ function NewCourses() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch("http://localhost:5000/aa/course/all");
+        const res = await fetch("http://localhost:5000/api/v1/course/all");
 
         if (!res.ok) {
           throw new Error("Failed to fetch courses");
         }
 
         const data = await res.json();
-        setCourses(data);
+        setCourses(data.data);
+
+
       } catch (err) {
         setError(err.message);
       } finally {
@@ -39,8 +41,8 @@ function NewCourses() {
             key={course._id}
             className="bg-white rounded-xl shadow-md overflow-hidden"
           >
-            <img
-              src={course.image}
+             <img
+              src={`http://localhost:5000/${course.image}`}
               alt={course.courseName}
               className="w-full h-48 object-cover"
             />
