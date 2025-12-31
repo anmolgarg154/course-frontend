@@ -67,7 +67,7 @@ function NewCourses() {
               </p>
 
               <p className="text-lg font-bold text-green-600">
-                ₹{course.price}
+                ₹ {course.price}
               </p>
             </div>
           </div>
